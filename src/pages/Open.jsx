@@ -1,15 +1,20 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useCallback, useEffect, useState } from "react";
+// import { Link } from "react-router-dom";
 import styled from "styled-components";
 import dst1 from "../assets/dst1.svg";
 import dst2 from "../assets/dst2.svg";
 import dst3 from "../assets/dst3.svg";
 import dst4 from "../assets/dst4.svg";
 import dst5 from "../assets/dst5.svg";
+import axios from 'axios';
+import Modal from '../components/Modal';
 
-const Open = () => {
+// import MemoList from "../components/MemoList";
+
+function Open() {
+
     return (
-        <div style={{ position: "relative", height: "500px" }}>
+        <div style={{ position: "relative", height: "500px" }}>    
             <Div1 style={{ width: "260px" }}>
                 <img src={dst1} />
             </Div1>
@@ -20,7 +25,7 @@ const Open = () => {
                 <img src={dst3} />
             </Div3>
             <Txt>
-                <MainTxt>OOO님 편지 확인</MainTxt>
+                <MainTxt>편지 확인</MainTxt>
                 <SubTxt>( 디저트들을 눌러보세요! )</SubTxt>
             </Txt>
             <Div4 style={{ width: "300px" }}>

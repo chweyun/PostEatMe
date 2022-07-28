@@ -1,28 +1,30 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import crl from "../assets/cereal.svg";
+import axios from 'axios';
 
 const main = "POST-EAT ME!";
 
-// TODO 내용 변경시가 아닌 submit했을 때만 state에 저장
-
 const Login = () => {
-    // TODO이름 전화번호 받아와서 post
     const [number, setNumber] = useState(2);
     const [scroll, setScroll] = useState(false);
 
-    const [id, setId] = useState("");
-    const [pw, setPw] = useState("");
-    console.log(id);
-    console.log(pw);
+    // const [id, setId] = useState("");
+    // const [pw, setPw] = useState("");
 
-    function handleIdInput(e) {
-        setId(e.target.value);
-    }
+    // console.log(id);
+    // console.log(pw);
 
-    function handlePwInput(e) {
-        setPw(e.target.value);
-    }
+    const [userData, setUserData] = useState({name:"", phone:""})
+
+
+    // function handleIdInput(e) {
+    //     setId(e.target.value);
+    // }
+
+    // function handlePwInput(e) {
+    //     setPw(e.target.value);
+    // }
 
     const onIncrease = () => {
         if (number > 0 && number < 10) setNumber(number + 1);
@@ -60,15 +62,13 @@ const Login = () => {
                         </Btn>
                     </Login2>
                     <Input
-                        onChange={(e) => handleIdInput(e)}
+                        onChange={(e) => setUserData({...userData, name:e.target.value})}
                         type="text"
-                        // class='id'
                         placeholder="이름"
                     />
                     <InputPw
-                        onChange={(e) => handlePwInput(e)}
+                        onChange={(e) => setUserData({...userData, phone:e.target.value})}
                         type="password"
-                        // class='pw'
                         placeholder="전화번호"
                     />
                 </div>
